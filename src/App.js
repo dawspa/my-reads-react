@@ -1,5 +1,6 @@
-import React from 'react'
-// import * as BooksAPI from './BooksAPI'
+import React, {Component} from 'react'
+import * as BooksAPI from './BooksAPI'
+import {Switch, Route} from 'react-router-dom'
 import './App.css'
 
 class BooksApp extends React.Component {
