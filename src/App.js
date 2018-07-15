@@ -63,6 +63,15 @@ class BooksApp extends React.Component {
                 </div>
             )}/>
 
+          <Route component={function notFound() {
+            return (
+              <div className="page404">
+                <h1>404 Not Found</h1>
+                <h3>Page not Found</h3>
+              </div>
+            )
+          }}/>
+
         </Switch>
 
       </div>
