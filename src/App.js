@@ -15,24 +15,11 @@ class BooksApp extends React.Component {
     BooksAPI.getAll().then((books) => {this.setState({booksAll: books})})
   }
 
-  searchResultUpdate = (values) => {
-    for (let value of values) {
-      for (let book of this.state.booksAll) {
-        if (value.id === book.id) {
-          value.shelf = book.shelf
-        } else {
-          value.shelf = 'none'
-        }
-      }
-    }
-    this.setState({booksFiltered: values})
-  }
-
   booksSearch = (query) => {
     if (query) {
       BooksAPI.search(query).then((result) => {
-        this.searchResultUpdate(result)
         if (result.error !== 'empty query') {
+          this.searchResultUpdate(result)
           this.setState({booksFiltered: result})
         } else {
           this.setState({booksFiltered: []})
@@ -48,6 +35,17 @@ class BooksApp extends React.Component {
       this.setState({booksAll: books})
       this.searchResultUpdate(this.state.booksFiltered)
     })))
+  }
+
+  searchResultUpdate = (values) => {
+    for (let value of values) {
+      for (let book of this.state.booksAll) {
+        if (value.id === book.id) {
+          value.shelf = book.shelf
+        }
+      }
+    }
+    this.setState({booksFiltered: values})
   }
 
   render() {
