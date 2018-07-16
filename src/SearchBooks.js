@@ -1,10 +1,9 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
 import Shelf from './Bookshelves'
 
-class SearchBooks extends Component {
+const SearchBooks = () => {
 
-  render() {
     const {booksFiltered, booksSearch, updateOption} = this.props
 
     return (
@@ -27,6 +26,5 @@ class SearchBooks extends Component {
         </div>
       </div>
     )
-  }
 }
 export default SearchBooks
