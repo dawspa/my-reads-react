@@ -20,6 +20,8 @@ class BooksApp extends React.Component {
       for (let book of this.state.booksAll) {
         if (value.id === book.id) {
           value.shelf = book.shelf
+        } else {
+          value.shelf = 'none'
         }
       }
     }
