@@ -4,7 +4,7 @@ class Shelf extends Component {
 
   render() {
     const {book, updateOption} = this.props
-    let shelfValue = (book.shelf) ? book.shelf : 'move'
+    let shelfValue = (book.shelf) ? book.shelf : 'none'
 
     return (
       <li>
