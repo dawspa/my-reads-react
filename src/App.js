@@ -33,12 +33,12 @@ class BooksApp extends React.Component {
   shelfUpdate = (book, shelf) => {
     BooksAPI.update(book, shelf).then(updated => (BooksAPI.getAll().then((books) => {
       this.setState({booksAll: books})
-      this.searchResultUpdate(this.state.booksFiltered)
+      this.searchResultUpdate({booksFiltered: books})
     })))
   }
 
   searchResultUpdate = (values) => {
-    for (let value of values) {
+    for (let value in values) {
       for (let book of this.state.booksAll) {
         if (value.id === book.id) {
           value.shelf = book.shelf
